@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Publishing Pro | Launch, Sell & Profit from Premium Content</title>
+    <meta name="description" content="Get 10 free premium PDF books, high-quality images, and exclusive video content. Upgrade for full access to 100+ books, 500+ images, and professional video templates.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Digital Publishing Pro | Premium Content Library">
+    <meta property="og:description" content="10 Free PDF Books + Premium Images & Videos. Upgrade for full digital publishing library access.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --royal-blue: #0a1628;
+            --deep-blue: #1e3a8a;
+            --soft-gold: #d4af37;
+            --light-gold: #f4e4bc;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a8a 50%, #0f172a 100%);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Floating Shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(255, 255, 255, 0.05));
+            filter: blur(40px);
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .shape-1 { width: 300px; height: 300px; top: 10%; left: 10%; animation-delay: 0s; }
+        .shape-2 { width: 200px; height: 200px; top: 60%; right: 15%; animation-delay: 5s; }
+        .shape-3 { width: 250px; height: 250px; bottom: 20%; left: 60%; animation-delay: 10s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        
+        /* Confetti */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--soft-gold);
+            animation: confetti-fall 3s ease-out forwards;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Glassmorphism Container */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+        }
+        
+        /* Top Badge */
+        .top-badge {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--light-gold);
+            animation: pulse-badge 2s infinite;
+            white-space: nowrap;
+        }
+        
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--soft-gold), var(--light-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 80px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+        
+        .hero-trust {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            flex-wrap: wrap;
+        }
+        
+        .hero-trust span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .hero-trust svg {
+            width: 16px;
+            height: 16px;
+            color: var(--soft-gold);
+        }
+        
+        /* CTA Button - Neomorphism */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 48px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--royal-blue);
+            background: linear-gradient(135deg, var(--soft-gold), #b8941f);
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 10px 30px rgba(212, 175, 55, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+            animation: pulse-button 2s infinite;
+            text-decoration: none;
+        }
+        
+        @keyframes pulse-button {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(212, 175, 55, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Floating 3D Mockups */
+        .mockup-container {
+            position: relative;
+            height: 400px;
+            margin-top: 60px;
+            perspective: 1000px;
+        }
+        
+        .floating-mockup {
+            position: absolute;
+            width: 200px;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .floating-mockup:hover {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.1) !important;
+            z-index: 10;
+        }
+        
+        .mockup-1 { left: 10%; top: 20%; transform: rotateY(-15deg) rotateX(5deg); animation: float-mockup 6s ease-in-out infinite; }
+        .mockup-2 { left: 35%; top: 10%; transform: rotateY(0deg) rotateX(0deg); animation: float-mockup 6s ease-in-out infinite 1s; z-index: 2; }
+        .mockup-3 { right: 10%; top: 20%; transform: rotateY(15deg) rotateX(5deg); animation: float-mockup 6s ease-in-out infinite 2s; }
+        .mockup-4 { left: 25%; top: 50%; transform: rotateY(-10deg) rotateX(10deg); animation: float-mockup 6s ease-in-out infinite 1.5s; }
+        .mockup-5 { right: 25%; top: 50%; transform: rotateY(10deg) rotateX(10deg); animation: float-mockup 6s ease-in-out infinite 2.5s; }
+        
+        @keyframes float-mockup {
+            0%, 100% { transform: translateY(0) rotateY(var(--rotate-y, 0deg)); }
+            50% { transform: translateY(-20px) rotateY(var(--rotate-y, 0deg)); }
+        }
+        
+        .mockup-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--soft-gold), #b8941f);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 28px;
+        }
+        
+        .mockup-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            color: var(--light-gold);
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 5%;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section-header.visible {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--white), var(--light-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .book-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .book-card.visible {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .book-cover {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        
+        .book-card:hover .book-cover::before {
+            left: 100%;
+        }
+        
+        .book-icon {
+            font-size: 48px;
+        }
+        
+        .book-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+        
+        .book-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+        }
+        
+        .value-badge {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--soft-gold);
+            text-align: center;
+        }
+        
+        /* Images Gallery */
+        .images-section {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item.visible {
+            animation: scaleIn 0.6s ease forwards;
+        }
+        
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 22, 40, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--light-gold);
+        }
+        
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .video-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .video-card.visible {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(30, 58, 138, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .video-card:hover .play-button {
+            transform: scale(1.1);
+            background: rgba(212, 175, 55, 0.3);
+            border-color: var(--soft-gold);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+        
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 24px solid white;
+            border-top: 16px solid transparent;
+            border-bottom: 16px solid transparent;
+            margin-left: 6px;
+        }
+        
+        .video-info {
+            padding: 24px;
+        }
+        
+        .video-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .video-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .pricing-card {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--soft-gold), transparent, var(--soft-gold));
+            border-radius: 24px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .pricing-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--soft-gold);
+            margin-bottom: 24px;
+        }
+        
+        .pricing-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 40px 0;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .pricing-features li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--soft-gold);
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .countdown-container {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .countdown-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--soft-gold);
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .countdown-unit {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+        
+        .price-tag {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--soft-gold);
+            margin: 30px 0;
+        }
+        
+        .price-tag span {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: line-through;
+            margin-left: 12px;
+        }
+        
+        /* Trust Section */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+        
+        .trust-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .trust-card.visible {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .trust-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+        
+        .trust-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .trust-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .testimonial-card.visible {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--soft-gold), #b8941f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--royal-blue);
+        }
+        
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .stars {
+            color: var(--soft-gold);
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 60px 5% 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--light-gold);
+        }
+        
+        .footer-section p, .footer-section a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--soft-gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 16px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(212, 175, 55, 0.3);
+            border-color: var(--soft-gold);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-badge {
+                font-size: 11px;
+                padding: 10px 16px;
+                width: 90%;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 140px 5% 60px;
+            }
+            
+            .mockup-container {
+                height: 300px;
+            }
+            
+            .floating-mockup {
+                width: 140px;
+                height: 200px;
+            }
+            
+            .mockup-1 { left: 5%; }
+            .mockup-2 { left: 30%; }
+            .mockup-3 { right: 5%; }
+            .mockup-4 { left: 15%; }
+            .mockup-5 { right: 15%; }
+            
+            .countdown-value {
+                font-size: 32px;
+            }
+            
+            .pricing-card {
+                padding: 40px 24px;
+            }
+            
+            section {
+                padding: 60px 5%;
+            }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--royal-blue);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--deep-blue);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--soft-gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confetti"></div>
+    
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+    
+    <!-- Top Badge -->
+    <div class="top-badge">
+        🎁 Special Launch Offer – 10 Free Books + Bonus Media Pack
+    </div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Digital Publishing Pro</div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Launch, Sell & Profit from Premium Digital Content</h1>
+            <p class="hero-subtitle">Get access to professional PDF books, high-quality images, and exclusive videos — plus 10 FREE bonus books today.</p>
+            <div class="hero-trust">
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Instant Access
+                </span>
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    Secure Download
+                </span>
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    High-Quality Content
+                </span>
+            </div>
+            <a href="https://www.example.com" target="_blank" class="cta-button" id="mainCta">
+                Get Instant Access
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+            
+            <!-- Floating Mockups -->
+            <div class="mockup-container">
+                <div class="floating-mockup mockup-1" style="--rotate-y: -15deg;">
+                    <div class="mockup-icon">📘</div>
+                    <div class="mockup-title">Digital Publishing Blueprint</div>
+                </div>
+                <div class="floating-mockup mockup-2" style="--rotate-y: 0deg;">
+                    <div class="mockup-icon">💰</div>
+                    <div class="mockup-title">Online Income Master</div>
+                </div>
+                <div class="floating-mockup mockup-3" style="--rotate-y: 15deg;">
+                    <div class="mockup-icon">🤖</div>
+                    <div class="mockup-title">AI Content Creation</div>
+                </div>
+                <div class="floating-mockup mockup-4" style="--rotate-y: -10deg;">
+                    <div class="mockup-icon">📈</div>
+                    <div class="mockup-title">Passive Income Playbook</div>
+                </div>
+                <div class="floating-mockup mockup-5" style="--rotate-y: 10deg;">
+                    <div class="mockup-icon">🚀</div>
+                    <div class="mockup-title">Social Media Growth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Free Books Section -->
+    <section class="books-section">
+        <div class="section-header">
+            <h2>10 Free PDF Books Bundle</h2>
+            <p>Download these premium guides instantly — no credit card required</p>
+        </div>
+        
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">📘</div>
+                </div>
+                <h3 class="book-title">Digital Publishing Blueprint</h3>
+                <p class="book-desc">Complete roadmap to creating, publishing, and selling digital products online.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">💰</div>
+                </div>
+                <h3 class="book-title">Online Income Master Guide</h3>
+                <p class="book-desc">Proven strategies to generate sustainable online revenue streams.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">🤖</div>
+                </div>
+                <h3 class="book-title">AI Content Creation Handbook</h3>
+                <p class="book-desc">Leverage AI tools to create content 10x faster with better quality.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">📈</div>
+                </div>
+                <h3 class="book-title">Passive Income Playbook</h3>
+                <p class="book-desc">Build automated income systems that work while you sleep.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">🚀</div>
+                </div>
+                <h3 class="book-title">Social Media Growth Secrets</h3>
+                <p class="book-desc">Explode your following with viral content strategies.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">💼</div>
+                </div>
+                <h3 class="book-title">Freelancing Success Guide</h3>
+                <p class="book-desc">Land high-paying clients and scale your freelance business.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">🎥</div>
+                </div>
+                <h3 class="book-title">Video Monetization Strategy</h3>
+                <p class="book-desc">Turn video content into multiple revenue streams.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">🔄</div>
+                </div>
+                <h3 class="book-title">High-Converting Sales Funnels</h3>
+                <p class="book-desc">Design funnels that convert visitors into paying customers.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">⚡</div>
+                </div>
+                <h3 class="book-title">Productivity & Focus System</h3>
+                <p class="book-desc">Maximize output with proven productivity frameworks.</p>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div class="book-icon">🧠</div>
+                </div>
+                <h3 class="book-title">Self-Growth & Wealth Mindset</h3>
+                <p class="book-desc">Develop the mindset of successful entrepreneurs.</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <div class="value-badge">Total Value $297 – Free Today</div>
+        </div>
+    </section>
+    
+    <!-- Free Images Section -->
+    <section class="images-section">
+        <div class="section-header">
+            <h2>Free Premium Images Pack</h2>
+            <p>50+ High-Resolution Royalty-Free Images Included</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600" alt="Business">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Business & Office</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600" alt="Lifestyle">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Lifestyle</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Marketing">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Marketing Backgrounds</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600" alt="Social Media">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Social Media Graphics</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600" alt="Tech">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Technology</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600" alt="Creative">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Creative Workspace</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Free Videos Section -->
+    <section class="videos-section">
+        <div class="section-header">
+            <h2>Free Video Resource Pack</h2>
+            <p>Exclusive Video Tutorials & Stock Clips Included</p>
+        </div>
+        
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Professional Video Editing</h3>
+                    <p class="video-desc">Master editing techniques for stunning content creation.</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Marketing Video Strategies</h3>
+                    <p class="video-desc">Create videos that convert viewers into customers.</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Promo Video Templates</h3>
+                    <p class="video-desc">Ready-to-use templates for product launches.</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Cinematic Stock Clips</h3>
+                    <p class="video-desc">High-quality footage for professional productions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Premium Pricing Section -->
+    <section class="pricing-section">
+        <div class="section-header">
+            <h2>Upgrade to Full Digital Publishing Pack</h2>
+            <p>Unlock the complete library of premium resources</p>
+        </div>
+        
+        <div class="glass pricing-card">
+            <div class="pricing-badge">Limited Time Offer</div>
+            <h3 class="pricing-title">Full Access Package</h3>
+            
+            <ul class="pricing-features">
+                <li>100+ Premium PDF Books</li>
+                <li>500+ High-Quality Images</li>
+                <li>100+ HD Video Templates</li>
+                <li>Lifetime Access</li>
+                <li>Free Monthly Updates</li>
+                <li>Priority Support</li>
+            </ul>
+            
+            <div class="countdown-container">
+                <div class="countdown-label">Launch Discount Ends In</div>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">02</div>
+                        <div class="countdown-unit">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-unit">Seconds</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="price-tag">
+                $47 <span>$197</span>
+            </div>
+            
+            <a href="https://www.example.com" target="_blank" class="cta-button">
+                Unlock Full Access
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="section-header">
+            <h2>Why Choose Digital Publishing Pro</h2>
+            <p>Trusted by thousands of content creators worldwide</p>
+        </div>
+        
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-icon">🔒</div>
+                <h3 class="trust-title">Secure Payment</h3>
+                <p class="trust-desc">256-bit SSL encryption protects your transaction</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">✓</div>
+                <h3 class="trust-title">Verified Content</h3>
+                <p class="trust-desc">All materials professionally created and reviewed</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">⚡</div>
+                <h3 class="trust-title">Instant Download</h3>
+                <p class="trust-desc">Get immediate access after purchase</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">↺</div>
+                <h3 class="trust-title">30-Day Guarantee</h3>
+                <p class="trust-desc">Full refund if you're not satisfied</p>
+            </div>
+        </div>
+        
+        <div class="section-header" style="margin-top: 80px;">
+            <h2>What Our Customers Say</h2>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The quality of these resources is incredible. I've already used the templates to create 3 products that are selling well. Best investment I've made this year!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JD</div>
+                    <div class="author-info">
+                        <h4>James Davidson</h4>
+                        <p>Digital Entrepreneur</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Finally, high-quality digital assets that don't look generic. The video templates alone saved me weeks of work. Highly recommended for any serious creator."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-info">
+                        <h4>Sarah Mitchell</h4>
+                        <p>Content Creator</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Worth every penny. The books are packed with actionable strategies, not fluff. My online income has increased 40% since implementing these methods."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RK</div>
+                    <div class="author-info">
+                        <h4>Robert Kim</h4>
+                        <p>Online Business Owner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close">×</div>
+        <img src="" alt="Preview" id="lightbox-img">
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Digital Publishing Pro</h3>
+                <p>Empowering creators with premium digital resources. Build, launch, and scale your digital product business with professional tools and guidance.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#">Free Books</a></p>
+                <p><a href="#">Premium Pack</a></p>
+                <p><a href="#">Support</a></p>
+                <p><a href="#">Affiliate Program</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <p><a href="#">Privacy Policy</a></p>
+                <p><a href="#">Terms & Conditions</a></p>
+                <p><a href="#">Disclaimer</a></p>
+                <p><a href="#">Refund Policy</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: support@digitalpublishingpro.com</p>
+                <p>Available 24/7 for support inquiries</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Digital Publishing Pro. All rights reserved. | Disclaimer: Results may vary. This page contains affiliate links.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Confetti Animation
+        function createConfetti() {
+            const container = document.getElementById('confetti');
+            const colors = ['#d4af37', '#f4e4bc', '#ffffff', '#1e3a8a'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    container.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 50);
+            }
+        }
+        
+        // Countdown Timer
+        function startCountdown() {
+            let minutes = 2;
+            let seconds = 0;
+            
+            const minEl = document.getElementById('minutes');
+            const secEl = document.getElementById('seconds');
+            
+            setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        minutes = 2;
+                        seconds = 0;
+                    } else {
+                        minutes--;
+                        seconds = 59;
+                    }
+                } else {
+                    seconds--;
+                }
+                
+                minEl.textContent = minutes.toString().padStart(2, '0');
+                secEl.textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+        
+        // Intersection Observer for Animations
+        function observeElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.section-header, .book-card, .gallery-item, .video-card, .trust-card, .testimonial-card').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // Lightbox Functions
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Click Sound Effect (using Web Audio API)
+        function playClickSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createConfetti();
+            startCountdown();
+            observeElements();
+            
+            // Add click sound to CTA buttons
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', playClickSound);
+            });
+            
+            // Keyboard navigation for lightbox
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        });
+        
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
